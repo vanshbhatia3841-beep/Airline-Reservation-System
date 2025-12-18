@@ -33,6 +33,7 @@ Clone the repository:
 Bash
 
 git clone https://github.com/vanshbhatia3841-beep/Airline-Reservation-System
+
 Database Setup:
 
 Create a database named airline in MySQL.
