@@ -103,9 +103,9 @@ public class AirlineTicket {
                                                                                                                     
 
             String sql = "INSERT INTO Ticket " +
-                    "(id, `Airline Name`, `First Name`, `Last Name`, `Phone No`, Age, `From`, `TO`, BookingID, `Date`, `Time`, Verification) "
+                    "(id, `Airline Name`, `First Name`, `Last Name`, `Phone No`, Age, `From`, `TO`, BookingID, `Date`, `Time`) "
                     +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pstmt = myConn.prepareStatement(sql);
 
@@ -120,7 +120,6 @@ public class AirlineTicket {
             pstmt.setString(9, AT.BookingID);
             pstmt.setDate(10, java.sql.Date.valueOf(AT.DateTime.toLocalDate()));
             pstmt.setTime(11, java.sql.Time.valueOf(AT.DateTime.toLocalTime()));
-            pstmt.setString(12, AT.Verification);
 
             int rowsAffected = pstmt.executeUpdate();
             System.out.println("Ticket successfully stored in database. Rows affected: " + rowsAffected);
