@@ -9,9 +9,10 @@ public class AirlineTicket {
     String BookingID;
     String FName, LName;
     String From;
-    String To;
+    String To, Verification;
     int day, month, year, hour, minute, age;
     long phone;
+    int id;
 
     Scanner scanner = new Scanner(System.in);
     LocalDateTime DateTime = LocalDateTime.now();
@@ -89,7 +90,7 @@ public class AirlineTicket {
 
     public static void main(String[] args) {
 
-        AirlineTicket AT = new AirlineTicket("AIRLINE NAME");
+        AirlineTicket AT = new AirlineTicket("Air India");
 
         AT.getInfo();
         System.out.println();
@@ -97,25 +98,29 @@ public class AirlineTicket {
 
         try {
             Connection myConn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/airline", "YOUR_USERNAME", "YOUR_PASSWORD");
+                    "jdbc:mysql://localhost:3306/airline",  "root",  "Vansh@1405") ; 
+                                                                                                                    
+                                                                                                                    
 
             String sql = "INSERT INTO Ticket " +
-                    "(`Airline Name`, `First Name`, `Last Name`, `Phone No`, Age, `From`, `TO`, BookingID, `Date`, `Time`) "
+                    "(id, `Airline Name`, `First Name`, `Last Name`, `Phone No`, Age, `From`, `TO`, BookingID, `Date`, `Time`, Verification) "
                     +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement pstmt = myConn.prepareStatement(sql);
 
-            pstmt.setString(1, AT.AirlineName);
-            pstmt.setString(2, AT.FName);
-            pstmt.setString(3, AT.LName);
-            pstmt.setLong(4, AT.phone);
-            pstmt.setInt(5, AT.age);
-            pstmt.setString(6, AT.From);
-            pstmt.setString(7, AT.To);
-            pstmt.setString(8, AT.BookingID);
-            pstmt.setDate(9, java.sql.Date.valueOf(AT.DateTime.toLocalDate()));
-            pstmt.setTime(10, java.sql.Time.valueOf(AT.DateTime.toLocalTime()));
+            pstmt.setInt(1, AT.id);
+            pstmt.setString(2, AT.AirlineName);
+            pstmt.setString(3, AT.FName);
+            pstmt.setString(4, AT.LName);
+            pstmt.setLong(5, AT.phone);
+            pstmt.setInt(6, AT.age);
+            pstmt.setString(7, AT.From);
+            pstmt.setString(8, AT.To);
+            pstmt.setString(9, AT.BookingID);
+            pstmt.setDate(10, java.sql.Date.valueOf(AT.DateTime.toLocalDate()));
+            pstmt.setTime(11, java.sql.Time.valueOf(AT.DateTime.toLocalTime()));
+            pstmt.setString(12, AT.Verification);
 
             int rowsAffected = pstmt.executeUpdate();
             System.out.println("Ticket successfully stored in database. Rows affected: " + rowsAffected);
