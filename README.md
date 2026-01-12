@@ -1,5 +1,5 @@
 # Airline-Reservation-System
-A collection of Core Java and Python projects.<br>
+A collection of Core Java projects<br>
 
 ✈️ <b>Airline Ticket Reservation System</b><br>
 A robust Java-based console application designed to manage airline bookings with a persistent backend database. This project demonstrates core OOP principles, database connectivity (JDBC), and date-time handling in Java.
@@ -27,7 +27,7 @@ A robust Java-based console application designed to manage airline bookings with
 2. <b>Database Setup:</b><br>
 - Create a database named airline in MySQL.
 
-- Create a table named Ticket with columns: Airline Name, First Name, Last Name, Phone No, Age, From, TO, BookingID, Date, Time.
+- Create a table named Ticket with columns: Id(Auto-Increment), Airline Name, First Name, Last Name, Phone No, Age, From, TO, BookingID, Date, Time, Verification (By Default set as Pending).
 
 3. <b>Add JDBC Driver:</b><br>
 - Ensure the mysql-connector-java JAR file is added to your project's build path.
