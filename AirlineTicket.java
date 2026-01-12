@@ -98,7 +98,7 @@ public class AirlineTicket {
 
         try {
             Connection myConn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/airline",  "root",  "Vansh@1405") ; 
+                    /*JDBC URL, Username, Password*/);
                                                                                                                     
                                                                                                                     
 
@@ -129,3 +129,4 @@ public class AirlineTicket {
         }
     }
 }
+
