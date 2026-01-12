@@ -1,5 +1,5 @@
 # Airline-Reservation-System
-A collection of Core Java projects<br>
+A Core Java project<br>
 
 ✈️ <b>Airline Ticket Reservation System</b><br>
 A robust Java-based console application designed to manage airline bookings with a persistent backend database. This project demonstrates core OOP principles, database connectivity (JDBC), and date-time handling in Java.
