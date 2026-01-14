@@ -90,7 +90,7 @@ public class AirlineTicket {
 
     public static void main(String[] args) {
 
-        AirlineTicket AT = new AirlineTicket("Air India");
+        AirlineTicket AT = new AirlineTicket(/*Airline Name*/);
 
         AT.getInfo();
         System.out.println();
@@ -129,4 +129,5 @@ public class AirlineTicket {
         }
     }
 }
+
 
