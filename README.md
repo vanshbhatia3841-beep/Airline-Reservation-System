@@ -34,4 +34,4 @@ A robust Java-based console application designed to manage airline bookings with
 
 4. <b>Update Credentials:</b><br>
 
-- Open AirlineTicket.java and update the DriverManager.getConnection string with your MySQL username and password.
+- Open AirlineTicket.java and update the DriverManager.getConnection string with your MySQL username and password and add the Airline Name.
