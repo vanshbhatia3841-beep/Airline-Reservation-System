@@ -9,7 +9,7 @@ public class AirlineTicket {
     String BookingID;
     String FName, LName;
     String From;
-    String To, Verification;
+    String To;
     int day, month, year, hour, minute, age;
     long phone;
     int id;
@@ -98,12 +98,12 @@ public class AirlineTicket {
 
         try {
             Connection myConn = DriverManager.getConnection(
-                    /*JDBC URL, Username, Password*/);
+                    /*JDBC Connection URL*/,  /*Username*/,  /*Password*/) ; 
                                                                                                                     
                                                                                                                     
 
             String sql = "INSERT INTO Ticket " +
-                    "(id, `Airline Name`, `First Name`, `Last Name`, `Phone No`, Age, `From`, `TO`, BookingID, `Date`, `Time`) "
+                    "(id, `Airline Name`, BookingID, `First Name`, `Last Name`, `Phone No`, Age, `From`, `TO`, `Date`, `Time`) "
                     +
                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -111,15 +111,16 @@ public class AirlineTicket {
 
             pstmt.setInt(1, AT.id);
             pstmt.setString(2, AT.AirlineName);
-            pstmt.setString(3, AT.FName);
-            pstmt.setString(4, AT.LName);
-            pstmt.setLong(5, AT.phone);
-            pstmt.setInt(6, AT.age);
-            pstmt.setString(7, AT.From);
-            pstmt.setString(8, AT.To);
-            pstmt.setString(9, AT.BookingID);
+            pstmt.setString(3, AT.BookingID);
+            pstmt.setString(4, AT.FName);
+            pstmt.setString(5, AT.LName);
+            pstmt.setLong(6, AT.phone);
+            pstmt.setInt(7, AT.age);
+            pstmt.setString(8, AT.From);
+            pstmt.setString(9, AT.To);
             pstmt.setDate(10, java.sql.Date.valueOf(AT.DateTime.toLocalDate()));
             pstmt.setTime(11, java.sql.Time.valueOf(AT.DateTime.toLocalTime()));
+            
 
             int rowsAffected = pstmt.executeUpdate();
             System.out.println("Ticket successfully stored in database. Rows affected: " + rowsAffected);
@@ -129,5 +130,3 @@ public class AirlineTicket {
         }
     }
 }
-
-
